@@ -41,7 +41,7 @@ app_train['TARGET'].astype(int).plot.hist();
 # Function to calculate missing vlaues by column 
 def missing_values_table(df):
     # total missing values
-    mis_val = df.isnull.sum()
+    mis_val = df.isnull().sum()
     
     #percent of missing values
     mis_val_percent = 100 * mis_val / len(df)
@@ -69,4 +69,6 @@ def missing_values_table(df):
 
 # Missing values stats
 missing_values = missing_values_table(app_train)
-print(missing_values.head(20))
+
+mis_val_hd = missing_values.head(20)
+print(mis_val_hd)
