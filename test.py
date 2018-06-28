@@ -6,7 +6,7 @@ Created on Sun Jun 24 08:24:58 2018
 """
 # numpy and pandas for data manipulation
 import numpy as np
-import pandas as pd 
+import pandas as pd
 
 # sklearn preprocessing for dealing with categorical variables
 from sklearn.preprocessing import LabelEncoder
