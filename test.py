@@ -188,4 +188,17 @@ correlations = app_train.corr()['TARGET'].sort_values()
 print('Most Positive Correlations:\n', correlations.tail(15))
 print('\nMost Negative Correlations:\n', correlations.head(15))
 
-      
+# Find the correlation of the positive days since birth and target
+app_train['DAYS_BIRTH'] = abs(app_train['DAYS_BIRTH'])
+app_train['DAYS_BIRTH'].corr(app_train['TARGET'])
+
+plt.style.use('fivethirtyeight')
+
+# Plot the distribution of ages in years
+plt.hist(app_train['DAYS_BIRTH'] / 365, edgecolor = 'k', bins = 25)
+plt.title('Age of Client'); plt.xlabel('Age (years)'); plt.ylabel('Count');
+
+plt.figure(figsize = (10,8))
+
+# KDE plot of loans that were repaid on time
+sns.kdeplot(app_train.loc[app_train['TARGET'] == 0, 'DAYS_BIRTH']/365, label = 'target ==0')
